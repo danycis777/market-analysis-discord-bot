@@ -30,13 +30,13 @@ Run the VCP screener script:
 
 ```bash
 # Default: S&P 500, top 100 candidates
-python3 skills/vcp-screener/scripts/screen_vcp.py --output-dir skills/vcp-screener/scripts
+python3 .claude/skills/vcp-screener/scripts/screen_vcp.py --output-dir reports/
 
 # Custom universe
-python3 skills/vcp-screener/scripts/screen_vcp.py --universe AAPL NVDA MSFT AMZN META --output-dir skills/vcp-screener/scripts
+python3 .claude/skills/vcp-screener/scripts/screen_vcp.py --universe AAPL NVDA MSFT AMZN META --output-dir reports/
 
 # Full S&P 500 (paid API tier)
-python3 skills/vcp-screener/scripts/screen_vcp.py --full-sp500 --output-dir skills/vcp-screener/scripts
+python3 .claude/skills/vcp-screener/scripts/screen_vcp.py --full-sp500 --output-dir reports/
 ```
 
 ### Strict Mode (Minervini pure setup)
@@ -44,7 +44,7 @@ python3 skills/vcp-screener/scripts/screen_vcp.py --full-sp500 --output-dir skil
 Only return stocks with `valid_vcp=True` AND `execution_state` in `(Pre-breakout, Breakout)`:
 
 ```bash
-python3 skills/vcp-screener/scripts/screen_vcp.py --strict --output-dir reports/
+python3 .claude/skills/vcp-screener/scripts/screen_vcp.py --strict --output-dir reports/
 ```
 
 ### Historical single-ticker mode
@@ -56,17 +56,17 @@ context — not a real-time screener.
 
 ```bash
 # Default: scan ~5 years (1260 trading days), 5-day stride, 60-day outcome window
-python3 skills/vcp-screener/scripts/screen_vcp.py \
+python3 .claude/skills/vcp-screener/scripts/screen_vcp.py \
   --history --ticker FIX --output-dir reports/
 
 # Custom scan length: 750 trading days (~3 years), 90-day outcome window
-python3 skills/vcp-screener/scripts/screen_vcp.py \
+python3 .claude/skills/vcp-screener/scripts/screen_vcp.py \
   --history 750 --ticker TSLA \
   --stride-days 5 --outcome-days 90 \
   --output-dir reports/
 
 # Long scan: 10 years (2520 trading days)
-python3 skills/vcp-screener/scripts/screen_vcp.py \
+python3 .claude/skills/vcp-screener/scripts/screen_vcp.py \
   --history 2520 --ticker NVDA --output-dir reports/
 ```
 
@@ -98,7 +98,7 @@ Notes:
 Adjust VCP detection parameters for research and backtesting:
 
 ```bash
-python3 skills/vcp-screener/scripts/screen_vcp.py \
+python3 .claude/skills/vcp-screener/scripts/screen_vcp.py \
   --min-contractions 3 \
   --t1-depth-min 12.0 \
   --breakout-volume-ratio 2.0 \

@@ -153,14 +153,14 @@ If API key is missing, guide user to:
 Use top 40 S&P 500 stocks by market cap (predefined in script):
 
 ```bash
-python3 skills/canslim-screener/scripts/screen_canslim.py
+python3 .claude/skills/canslim-screener/scripts/screen_canslim.py
 ```
 
 **Option B: Custom Universe**
 User provides specific symbols or sector:
 
 ```bash
-python3 skills/canslim-screener/scripts/screen_canslim.py \
+python3 .claude/skills/canslim-screener/scripts/screen_canslim.py \
   --universe AAPL MSFT GOOGL AMZN NVDA META TSLA
 ```
 
@@ -180,7 +180,7 @@ User can provide sector-focused list (Technology, Healthcare, etc.)
 Run the main screening script with appropriate parameters:
 
 ```bash
-cd skills/canslim-screener/scripts
+cd .claude/skills/canslim-screener/scripts
 
 # Basic run (40 stocks, top 20 in report)
 python3 screen_canslim.py --api-key $FMP_API_KEY

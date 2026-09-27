@@ -56,7 +56,7 @@ floors to the requested decimal precision instead of rounding up.
 Fractional shares can make the risk budget usable for small accounts, high-priced stocks, or very tight risk budgets:
 
 ```bash
-python3 skills/position-sizer/scripts/position_sizer.py \
+python3 .claude/skills/position-sizer/scripts/position_sizer.py \
   --account-size 1000 \
   --entry 155 \
   --stop 148.50 \

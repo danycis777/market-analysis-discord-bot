@@ -345,7 +345,7 @@ chart is supplied, or when an auditable, deterministic result is
 preferred:
 
 ```bash
-python3 skills/technical-analyst/scripts/check_weekly_price_action.py \
+python3 .claude/skills/technical-analyst/scripts/check_weekly_price_action.py \
   --symbol BT --direction CROWDED_LONG --as-of 2026-07-15 \
   --output-dir reports/
 ```
@@ -353,7 +353,7 @@ python3 skills/technical-analyst/scripts/check_weekly_price_action.py \
 Or resolve direction from a `cot-contrarian-detector` report directly:
 
 ```bash
-python3 skills/technical-analyst/scripts/check_weekly_price_action.py \
+python3 .claude/skills/technical-analyst/scripts/check_weekly_price_action.py \
   --symbol BT --detector-json reports/cot_crowding_2026-07-12.json \
   --as-of 2026-07-15 --output-dir reports/
 ```

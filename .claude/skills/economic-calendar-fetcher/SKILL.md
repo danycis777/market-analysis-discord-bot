@@ -57,7 +57,7 @@ Use this skill when the user requests:
 ## Prerequisites
 
 - **FMP API Key** (required): Sign up at https://financialmodelingprep.com for a free key (250 requests/day). Set via `FMP_API_KEY` environment variable or pass `--api-key` to the script.
-- **Python 3.10+**: Required to run `skills/economic-calendar-fetcher/scripts/get_economic_calendar.py`.
+- **Python 3.10+**: Required to run `.claude/skills/economic-calendar-fetcher/scripts/get_economic_calendar.py`.
 - **No third-party packages**: The script uses only the Python standard library.
 
 ## Workflow
@@ -107,12 +107,12 @@ Assistant: "I'll fetch the economic calendar. I'll use the FMP_API_KEY environme
 
 **Basic usage (default 7 days):**
 ```bash
-python3 skills/economic-calendar-fetcher/scripts/get_economic_calendar.py --api-key YOUR_KEY
+python3 .claude/skills/economic-calendar-fetcher/scripts/get_economic_calendar.py --api-key YOUR_KEY
 ```
 
 **With specific date range:**
 ```bash
-python3 skills/economic-calendar-fetcher/scripts/get_economic_calendar.py \
+python3 .claude/skills/economic-calendar-fetcher/scripts/get_economic_calendar.py \
   --from 2025-01-01 \
   --to 2025-01-31 \
   --api-key YOUR_KEY \
@@ -122,7 +122,7 @@ python3 skills/economic-calendar-fetcher/scripts/get_economic_calendar.py \
 **Using environment variable (no --api-key needed):**
 ```bash
 export FMP_API_KEY=your_key_here
-python3 skills/economic-calendar-fetcher/scripts/get_economic_calendar.py \
+python3 .claude/skills/economic-calendar-fetcher/scripts/get_economic_calendar.py \
   --from 2025-01-01 \
   --to 2025-01-07
 ```
@@ -333,7 +333,7 @@ If user requested specific filters, note at top:
 ## Resources
 
 **Python Script:**
-- `skills/economic-calendar-fetcher/scripts/get_economic_calendar.py`: Main API fetch script with CLI interface
+- `.claude/skills/economic-calendar-fetcher/scripts/get_economic_calendar.py`: Main API fetch script with CLI interface
 
 **Reference Documentation:**
 - `references/fmp_api_documentation.md`: Complete FMP Economic Calendar API reference
