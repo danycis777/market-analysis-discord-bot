@@ -86,7 +86,7 @@ JSON is UTF-8 with `ensure_ascii=False` (Japanese explanations preserved). Sensi
 
 ## CLI
 ```bash
-python3 .claude/skills/ibd-distribution-day-monitor/scripts/ibd_monitor.py \
+python3 ${CLAUDE_SKILL_DIR}/scripts/ibd_monitor.py \
   --symbols QQQ,SPY \
   --lookback-days 80 \
   --instrument TQQQ \

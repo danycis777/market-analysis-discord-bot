@@ -54,7 +54,7 @@ Run the analysis script. If using a nested or date-stamped `--output-dir` in cro
 
 ```bash
 mkdir -p reports/<routine-or-date>
-python3 .claude/skills/market-breadth-analyzer/scripts/market_breadth_analyzer.py \
+python3 ${CLAUDE_SKILL_DIR}/scripts/market_breadth_analyzer.py \
   --detail-url "https://tradermonty.github.io/market-breadth-analysis/market_breadth_data.csv" \
   --summary-url "https://tradermonty.github.io/market-breadth-analysis/market_breadth_summary.csv" \
   --output-dir reports/<routine-or-date>

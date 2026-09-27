@@ -33,11 +33,22 @@ for f in .claude/skills/*/requirements.txt; do pip install -r "$f"; done
 
 Most scripts save reports to `reports/` by default, and that folder is git-ignored. `ftd-detector` and `market-breadth-analyzer` save to the current directory instead unless you pass `--output-dir reports/`.
 
+## Using a skill in all your projects
+
+Copy its folder from here to `~/.claude/skills/`:
+
+```bash
+mkdir -p ~/.claude/skills
+cp -r .claude/skills/backtest-expert ~/.claude/skills/
+```
+
+A personal copy takes priority over a project copy with the same name.
+
 ## Changes from upstream
 
-Python code, references and assets are unchanged. Only the Markdown instructions were adapted so their commands work from this repo's root:
+Python code and assets are unchanged. Only Markdown was edited: 10 `SKILL.md` files and one reference file.
 
-- Paths `skills/<name>/…` became `.claude/skills/<name>/…`.
+- Upstream paths `skills/<name>/…` are relative to the upstream repo root, so they break once a skill is installed anywhere else. They now read `${CLAUDE_SKILL_DIR}/…`. Claude Code replaces that with the skill's own folder when it loads a `SKILL.md`, so the same folders work here and in `~/.claude/skills/`, from any working directory. Reference files aren't substituted, so the one example command in `position-sizer/references/` shows the placeholder as written.
 - `vcp-screener`'s examples write to `reports/` instead of into the skill's own `scripts/` folder.
 
 ## Tests
@@ -59,9 +70,9 @@ done
 cp /tmp/cts/LICENSE .claude/skills/LICENSE-claude-trading-skills
 
 # Re-apply the path changes described above
-names=$(ls -d .claude/skills/*/ | xargs -n1 basename | paste -sd '|')
-find .claude/skills -name '*.md' -not -path '.claude/skills/README.md' -print0 |
-  xargs -0 perl -pi -e "s{--output-dir skills/vcp-screener/scripts\b}{--output-dir reports/}g; s{(?<![\w./-])skills/($names)/}{.claude/skills/\$1/}g"
+for d in .claude/skills/*/; do
+  find "$d" -name '*.md' -print0 | S="$(basename "$d")" xargs -0 perl -pi -e 's{--output-dir skills/vcp-screener/scripts\b}{--output-dir reports/}g; s{(?<![\w./-])skills/\Q$ENV{S}\E/}{\${CLAUDE_SKILL_DIR}/}g'
+done
 ```
 
 Then update the commit link at the top of this file.

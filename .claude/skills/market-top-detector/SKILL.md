@@ -104,7 +104,7 @@ Before running the Python script, collect the following data using WebSearch.
 Run the script with collected data as CLI arguments:
 
 ```bash
-python3 .claude/skills/market-top-detector/scripts/market_top_detector.py \
+python3 ${CLAUDE_SKILL_DIR}/scripts/market_top_detector.py \
   --api-key $FMP_API_KEY \
   --breadth-50dma [VALUE] --breadth-50dma-date [YYYY-MM-DD] \
   --put-call [VALUE] --put-call-date [YYYY-MM-DD] \

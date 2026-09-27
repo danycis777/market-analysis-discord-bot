@@ -50,7 +50,7 @@ Detect Follow-Through Day (FTD) signals that confirm a market bottom, using Will
 Run the FTD detector script:
 
 ```bash
-python3 .claude/skills/ftd-detector/scripts/ftd_detector.py --api-key $FMP_API_KEY
+python3 ${CLAUDE_SKILL_DIR}/scripts/ftd_detector.py --api-key $FMP_API_KEY
 ```
 
 The script will:
@@ -133,17 +133,17 @@ NO_SIGNAL → CORRECTION → RALLY_ATTEMPT → FTD_WINDOW → FTD_CONFIRMED
 
 ## Reference Documents
 
-### `.claude/skills/ftd-detector/references/ftd_methodology.md`
+### `${CLAUDE_SKILL_DIR}/references/ftd_methodology.md`
 - O'Neil's FTD rules in detail
 - Rally attempt mechanics and day counting
 - Historical FTD examples (2020 March, 2022 October)
 
-### `.claude/skills/ftd-detector/references/post_ftd_guide.md`
+### `${CLAUDE_SKILL_DIR}/references/post_ftd_guide.md`
 - Post-FTD distribution day failure rates
 - Power Trend definition and conditions
 - Success vs failure pattern comparison
 
 ### When to Load References
-- **First use:** Load `.claude/skills/ftd-detector/references/ftd_methodology.md` for full understanding
-- **Post-FTD questions:** Load `.claude/skills/ftd-detector/references/post_ftd_guide.md`
+- **First use:** Load `${CLAUDE_SKILL_DIR}/references/ftd_methodology.md` for full understanding
+- **Post-FTD questions:** Load `${CLAUDE_SKILL_DIR}/references/post_ftd_guide.md`
 - **Regular execution:** References not needed - script handles analysis

@@ -117,7 +117,7 @@ This is where 80% of testing time should be spent.
 Use the evaluation script for a structured, quantitative assessment:
 
 ```bash
-python3 .claude/skills/backtest-expert/scripts/evaluate_backtest.py \
+python3 ${CLAUDE_SKILL_DIR}/scripts/evaluate_backtest.py \
   --total-trades 150 \
   --win-rate 62 \
   --avg-win-pct 1.8 \

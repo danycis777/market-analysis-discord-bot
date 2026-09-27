@@ -49,7 +49,7 @@ Run the position sizing calculation:
 
 ```bash
 # Fixed Fractional (most common)
-python3 .claude/skills/position-sizer/scripts/position_sizer.py \
+python3 ${CLAUDE_SKILL_DIR}/scripts/position_sizer.py \
   --account-size 100000 \
   --entry 155 \
   --stop 148.50 \
@@ -57,7 +57,7 @@ python3 .claude/skills/position-sizer/scripts/position_sizer.py \
   --output-dir reports/
 
 # Fractional shares for small accounts or high-priced stocks
-python3 .claude/skills/position-sizer/scripts/position_sizer.py \
+python3 ${CLAUDE_SKILL_DIR}/scripts/position_sizer.py \
   --account-size 1000 \
   --entry 155 \
   --stop 148.50 \
@@ -67,7 +67,7 @@ python3 .claude/skills/position-sizer/scripts/position_sizer.py \
   --output-dir reports/
 
 # ATR-Based
-python3 .claude/skills/position-sizer/scripts/position_sizer.py \
+python3 ${CLAUDE_SKILL_DIR}/scripts/position_sizer.py \
   --account-size 100000 \
   --entry 155 \
   --atr 3.20 \
@@ -76,7 +76,7 @@ python3 .claude/skills/position-sizer/scripts/position_sizer.py \
   --output-dir reports/
 
 # Kelly Criterion (budget mode - no entry)
-python3 .claude/skills/position-sizer/scripts/position_sizer.py \
+python3 ${CLAUDE_SKILL_DIR}/scripts/position_sizer.py \
   --account-size 100000 \
   --win-rate 0.55 \
   --avg-win 2.5 \
@@ -84,7 +84,7 @@ python3 .claude/skills/position-sizer/scripts/position_sizer.py \
   --output-dir reports/
 
 # Kelly Criterion (shares mode - with entry/stop)
-python3 .claude/skills/position-sizer/scripts/position_sizer.py \
+python3 ${CLAUDE_SKILL_DIR}/scripts/position_sizer.py \
   --account-size 100000 \
   --entry 155 \
   --stop 148.50 \
@@ -110,7 +110,7 @@ If the user has not specified a single method, run multiple scenarios for compar
 Add constraints if the user has portfolio context:
 
 ```bash
-python3 .claude/skills/position-sizer/scripts/position_sizer.py \
+python3 ${CLAUDE_SKILL_DIR}/scripts/position_sizer.py \
   --account-size 100000 \
   --entry 155 \
   --stop 148.50 \
